@@ -1,6 +1,9 @@
 package com.lab1;
 
 import com.lab1.strategy.MortgageStrategy;
+import com.lab1.strategy.impl.AmortizedMortgageStrategy;
+import com.lab1.strategy.impl.LinearMortgageStrategy;
+
 import java.time.LocalDate;
 
 public class Mortgage {
@@ -31,8 +34,19 @@ public class Mortgage {
         return currentLoan;
     }
 
-    private Payment getRequiredPayment(LocalDate date){
-        return null;
+    Payment getRequiredPayment(LocalDate date, int s){
+
+        if (s == 1){
+            MortgageStrategy mortgageStrategy1 = new LinearMortgageStrategy(500000, startDate, 42,28);
+            this.setMortgageStrategy(mortgageStrategy1);
+        }
+        else {
+            MortgageStrategy mortgageStrategy1 = new AmortizedMortgageStrategy(0.0053682,500000,startDate,42);
+            this.setMortgageStrategy(mortgageStrategy1);
+        }
+        Payment payment = mortgageStrategy.getRequiredPayment(date);
+        return payment;
+
     }
 
     private void makePayment(Payment p){
