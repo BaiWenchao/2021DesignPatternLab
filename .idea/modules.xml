@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/2021DesignPatternLab.iml" filepath="$PROJECT_DIR$/.idea/2021DesignPatternLab.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab1_Mortgages/Lab1_Mortgages.iml" filepath="$PROJECT_DIR$/Lab1_Mortgages/Lab1_Mortgages.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab2_Database_logging/Lab2_Database_logging.iml" filepath="$PROJECT_DIR$/Lab2_Database_logging/Lab2_Database_logging.iml" />
     </modules>
   </component>
 </project>
