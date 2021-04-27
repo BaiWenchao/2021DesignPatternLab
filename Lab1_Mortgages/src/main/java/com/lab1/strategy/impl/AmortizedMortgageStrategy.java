@@ -24,8 +24,8 @@ public class AmortizedMortgageStrategy implements MortgageStrategy {
     @Override
     public Payment getRequiredPayment(LocalDate date) {
         long deltaM = dateCompare(startDate, date);
-//        double payment = payment_rateM;
-        double payment = payment_rateM * InitialLoan;
+        double payment = payment_rateM;
+//        double payment = payment_rateM * InitialLoan;
         double l = InitialLoan;
         double r = 0;
         for (int i = 0; i < deltaM; i++) {
@@ -34,7 +34,7 @@ public class AmortizedMortgageStrategy implements MortgageStrategy {
         }
         double repayment = payment - l * ((double)interestPointsM/10000);
         Integer interest = (int)(((double)interestPointsM/10000)*l);
-        Payment p = new Payment(date, (int)payment, interest);
+        Payment p = new Payment(date, (int)repayment, interest);
         return p;
     }
 

@@ -25,9 +25,9 @@ public class LinearMortgageStrategy implements MortgageStrategy {
     public Payment getRequiredPayment(LocalDate date) {
         LocalDate localDate = date;
         long deltaM = dateCompare(startDate, date);
-        Integer payment = (int)(repayment + ((double)interestPointsM/10000)*(InitialLoan - deltaM * repayment));
+//        Integer payment = (int)(repayment + ((double)interestPointsM/10000)*(InitialLoan - deltaM * repayment));
         Integer interest = (int)(((double)interestPointsM/10000)*(InitialLoan - deltaM * repayment));
-        Payment p = new Payment(date, payment, interest);
+        Payment p = new Payment(date, (int)repayment, interest);
         return p;
     }
 
