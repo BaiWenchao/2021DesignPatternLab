@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Lab1_Mortgages" />
         <module name="Lab2_Database_logging" />
+        <module name="Lab1_Mortgages" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Lab1_Mortgages" target="14" />
-      <module name="Lab2_Database_logging" target="1.5" />
+      <module name="Lab1_Mortgages" target="15" />
+      <module name="Lab2_Database_logging" target="15" />
     </bytecodeTargetLevel>
   </component>
 </project>

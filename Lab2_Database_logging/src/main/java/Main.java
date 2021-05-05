@@ -1,18 +1,25 @@
 public class Main {
-
     public static void main(String[] args) {
-        DB db1 = new DB();
-        System.out.println(db1.getLogs().toString());
 
-        db1 = new TextLogger(db1);
-        System.out.println(db1.getLogs().toString());
+        DB logToTextFileDB = new LogToTextFileDB(new DB(), Util.TEXT_FILE_PATH);
+        DB logToOtherDBDB = new LogToOtherDBDB(new DB(), Util.OTHER_DB_PATH);
+        DB logToOtherDBTextFileDB = new LogToOtherDBDB(new LogToTextFileDB(new DB(), Util.TEXT_FILE_PATH), Util.OTHER_DB_PATH);
 
-        db1 = new DBLogger(db1);
-        System.out.println(db1.getLogs().toString());
+        String row11[] = {"1A", "1B", "1C"};
+        String row21[] = {"2B", "1B"};
 
-        db1 = new TextLogger(db1);
-        System.out.println(db1.getLogs().toString());
+        // CREATE TABLE
+        logToOtherDBTextFileDB.createTable("MyTable1", 3);
+        logToOtherDBTextFileDB.createTable("MyTable2", 2);
 
+        // INSERT
+        logToOtherDBTextFileDB.insert("MyTable1", row11);
+        logToOtherDBTextFileDB.insert("MyTable2", row21);
+
+        // SELECT
+        DBTable tab = logToOtherDBTextFileDB.select("MyTable1", 1, "1B");
+
+        // JOIN
+        DBTable jtab = logToOtherDBTextFileDB.join("MyTable1", "MyTable2", 1, 1);
     }
-
 }

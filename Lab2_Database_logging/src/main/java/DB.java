@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class DB {
 	private HashMap<String, DBTable> tables;
@@ -8,13 +6,6 @@ public class DB {
 	public DB() {
 		tables = new HashMap<String, DBTable>();
 	}
-
-	// use an ArrayList to save logs.
-	private List<String> logs = new ArrayList<String>();
-	public List<String> getLogs() {
-		return new ArrayList<String>();
-	}
-
 	// This method is not a transaction type; it is public to enable testing
 	public DBTable getTable(String name) {
 		if (tables.containsKey(name)) {
