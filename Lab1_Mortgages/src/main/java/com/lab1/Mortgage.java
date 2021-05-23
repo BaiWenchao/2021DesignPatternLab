@@ -36,10 +36,12 @@ public class Mortgage {
 
     Payment getRequiredPayment(LocalDate date, int s){
 
+        // s = 1 -> Linear
         if (s == 1){
             MortgageStrategy mortgageStrategy1 = new LinearMortgageStrategy(500000, startDate, 42,28);
             this.setMortgageStrategy(mortgageStrategy1);
         }
+        // s = 2 -> Amoritized
         else {
             MortgageStrategy mortgageStrategy1 = new AmortizedMortgageStrategy(0.0053682,500000,startDate,42);
             this.setMortgageStrategy(mortgageStrategy1);

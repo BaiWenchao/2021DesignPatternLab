@@ -15,7 +15,7 @@ public class TestAmortizedMortgagesStrategy {
         LocalDate now = LocalDate.parse("2023-08-01");
         AmortizedMortgageStrategy amortizedMortgageStrategy = new AmortizedMortgageStrategy(2684.1,500000,startDate,42);
         Payment payment = amortizedMortgageStrategy.getRequiredPayment(now);
-        assertEquals(payment.getRedemption(), 674);
+        assertEquals(payment.getRedemption(), 656);
     }
 
 

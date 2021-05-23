@@ -24,8 +24,7 @@ public class AmortizedMortgageStrategy implements MortgageStrategy {
     @Override
     public Payment getRequiredPayment(LocalDate date) {
         long deltaM = dateCompare(startDate, date);
-        double payment = payment_rateM;
-//        double payment = payment_rateM * InitialLoan;
+        double payment = payment_rateM * InitialLoan;
         double l = InitialLoan;
         double r = 0;
         for (int i = 0; i < deltaM; i++) {
@@ -38,6 +37,8 @@ public class AmortizedMortgageStrategy implements MortgageStrategy {
         return p;
     }
 
+    // This method can calculate the number of months between the two date.
+    @Override
     public long dateCompare(LocalDate localDate1, LocalDate localDate2) {
         return localDate1.until(localDate2, ChronoUnit.MONTHS);
     }

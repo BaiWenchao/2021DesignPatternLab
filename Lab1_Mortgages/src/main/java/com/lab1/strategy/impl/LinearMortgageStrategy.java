@@ -23,14 +23,14 @@ public class LinearMortgageStrategy implements MortgageStrategy {
 
     @Override
     public Payment getRequiredPayment(LocalDate date) {
-        LocalDate localDate = date;
         long deltaM = dateCompare(startDate, date);
-//        Integer payment = (int)(repayment + ((double)interestPointsM/10000)*(InitialLoan - deltaM * repayment));
         Integer interest = (int)(((double)interestPointsM/10000)*(InitialLoan - deltaM * repayment));
         Payment p = new Payment(date, (int)repayment, interest);
         return p;
     }
 
+    // This method can calculate the number of months between the two date.
+    @Override
     public long dateCompare(LocalDate localDate1, LocalDate localDate2) {
         return localDate1.until(localDate2, ChronoUnit.MONTHS);
     }
