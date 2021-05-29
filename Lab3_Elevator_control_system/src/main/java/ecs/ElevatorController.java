@@ -8,6 +8,8 @@ import ecs.motor.ElevatorMotor;
 import ecs.state.ElevatorState;
 import ecs.util.Config;
 
+import javax.swing.*;
+
 import static ecs.util.Config.INIT_DST;
 
 public class ElevatorController {
@@ -29,6 +31,10 @@ public class ElevatorController {
 
     public void execute() {
         state.Handle(this);
+    }
+
+    public void execute(JLabel crtFloor, JLabel dstFloor, JLabel elevatorState, JLabel doorState) {
+        state.Handle(this, crtFloor, dstFloor, elevatorState, doorState);
     }
 
     public String getErrorMsg() {

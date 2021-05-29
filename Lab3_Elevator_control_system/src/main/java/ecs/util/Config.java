@@ -6,4 +6,6 @@ public class Config {
     public static int INIT_DST = -1;
 
     public static enum DoorStatus {OPEN, CLOSED, BRAKE};
+
+    public static int wait_sec = 1;
 }

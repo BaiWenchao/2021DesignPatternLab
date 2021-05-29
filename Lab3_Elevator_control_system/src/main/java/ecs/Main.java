@@ -1,20 +1,14 @@
 package ecs;
 
-import ecs.util.Config;
-
-import static ecs.util.States.idleState;
+import static ecs.util.States.ELEVATOR_IDLE;
 
 public class Main {
     public static void main(String[] args) {
-        ElevatorController controller = new ElevatorController(idleState);
+        ElevatorController controller = new ElevatorController(ELEVATOR_IDLE);
         controller.execute();
         log(controller);
 
         controller.getElevatorPanel().floorButtonPressed(2);
-        controller.execute();
-        log(controller);
-
-        controller.setDoorStatus(Config.DoorStatus.OPEN);
         controller.execute();
         log(controller);
     }

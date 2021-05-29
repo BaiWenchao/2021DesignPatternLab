@@ -1,9 +1,9 @@
 package ecs;
 
-import static ecs.util.States.idleState;
-
 import ecs.util.Config;
 import junit.framework.TestCase;
+
+import static ecs.util.States.ELEVATOR_IDLE;
 
 /**
  * Note that:
@@ -15,8 +15,9 @@ import junit.framework.TestCase;
 
 public class TestElevatorState extends TestCase {
     public void testInitialState() {
-        ElevatorController controller = new ElevatorController(idleState);
+        ElevatorController controller = new ElevatorController(ELEVATOR_IDLE);
         controller.execute();
+
         assertEquals(controller.getStateMsg(), "IDLE STATE");
         assertEquals(controller.getErrorMsg(), "NULL");
         assertEquals(controller.getDoorStatus(), Config.DoorStatus.CLOSED);
@@ -26,11 +27,10 @@ public class TestElevatorState extends TestCase {
     }
 
     public void testMovingUp() {
-        ElevatorController controller = new ElevatorController(idleState);
+        ElevatorController controller = new ElevatorController(ELEVATOR_IDLE);
         controller.execute();
 
         controller.getElevatorPanel().floorButtonPressed(3);
-        controller.execute();
         assertEquals(controller.getStateMsg(), "IDLE STATE");
         assertEquals(controller.getErrorMsg(), "NULL");
         assertEquals(controller.getDoorStatus(), Config.DoorStatus.OPEN);
@@ -40,11 +40,11 @@ public class TestElevatorState extends TestCase {
     }
 
     public void testMovingDown() {
-        ElevatorController controller = new ElevatorController(idleState);
+        ElevatorController controller = new ElevatorController(ELEVATOR_IDLE);
         controller.execute();
 
         controller.getElevatorPanel().floorButtonPressed(3);
-        controller.execute();
+
         assertEquals(controller.getStateMsg(), "IDLE STATE");
         assertEquals(controller.getErrorMsg(), "NULL");
         assertEquals(controller.getDoorStatus(), Config.DoorStatus.OPEN);
@@ -53,7 +53,7 @@ public class TestElevatorState extends TestCase {
         assertEquals(controller.getDstFloor(), 3);
 
         controller.getElevatorPanel().floorButtonPressed(1);
-        controller.execute();
+
         assertEquals(controller.getStateMsg(), "IDLE STATE");
         assertEquals(controller.getErrorMsg(), "NULL");
         assertEquals(controller.getDoorStatus(), Config.DoorStatus.OPEN);

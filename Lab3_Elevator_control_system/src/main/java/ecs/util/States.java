@@ -6,8 +6,8 @@ import ecs.state.concreteState.IdleState;
 import ecs.state.concreteState.UpState;
 
 public class States {
-    public static DownState downState = new DownState();
-    public static IdleState idleState = new IdleState();
-    public static UpState upState = new UpState();
-    public static BrakeState brakeState = new BrakeState();
+    public static DownState ELEVATOR_DOWN = new DownState();
+    public static IdleState ELEVATOR_IDLE = new IdleState();
+    public static UpState ELEVATOR_UP = new UpState();
+    public static BrakeState ELEVATOR_BRAKE = new BrakeState();
 }
