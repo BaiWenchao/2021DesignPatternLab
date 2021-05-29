@@ -20,6 +20,7 @@ public class IdleState extends ElevatorState {
         } else {
             controller.setStateMsg("IDLE STATE");
             controller.setState(idleState);
+            controller.setFloorReached(true);
         }
     }
 }

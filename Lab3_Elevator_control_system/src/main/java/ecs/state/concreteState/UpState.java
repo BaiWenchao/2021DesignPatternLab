@@ -15,7 +15,6 @@ public class UpState extends ElevatorState {
             controller.execute();
         } else {
             controller.getDoorMotor().goBrake(controller);
-            controller.getElevatorMotor().goBrake(controller);
             controller.setStateMsg("BRAKE STATE");
             controller.setState(brakeState);
             controller.execute();
